@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+	<style>
+		#container {
+			width: 1340px;
+			height: 480px;
+			position: relative;
+			background: #ffffcc;
+		}
+
+		#quadrado {
+			width: 20px; 
+			height: 20px;
+			position: absolute;
+			background: black; 
+		}
+	</style>
+
+</head>
+<body onkeydown="uniKeyCode(event)">
+
+	<p id="code">KEY CODE correspondente: </p>
+	<p id="vestical"></p>
+	<p id="horizontal"></p>
+
+	<div id="container">
+		<div id="quadrado"></div>
+	</div>
+
+	<script>
+		var posicaoVertical = 0
+		var posicaoHorizontal = 0
+
+		//document.getElementById("vestical").innerHTML = "Posição Vestical: " + posicaoVertical
+		//document.getElementById("horizontal").innerHTML = "Posição Horizontal: " + posicaoHorizontal
+
+		function uniKeyCode(event) {
+			var key = event.keyCode
+			document.getElementById("code").innerHTML = "KEY CODE correspondente: " + key
+
+			if (posicaoVertical >= 0 && posicaoVertical <= 1300) { 
+				
+				if(key == 39){ // Para a direita
+					posicaoVertical += 20
+					document.getElementById("quadrado").style.left = posicaoVertical+'px'
+				} 
+
+				if(key == 37){//Para a esquerda
+					posicaoVertical -= 20
+					document.getElementById("quadrado").style.left = posicaoVertical+'px'
+				}
+
+				if (posicaoVertical < 0) {posicaoVertical += 20}
+				if (posicaoVertical > 1300) {posicaoVertical -= 20}
+			}
+
+			if (posicaoHorizontal >= 0 && posicaoHorizontal <= 440) {
+
+				if(key == 38){//Para cima
+					posicaoHorizontal -= 20
+					document.getElementById("quadrado").style.top = posicaoHorizontal+'px'
+				}
+				if(key == 40){ // Para baixo
+					posicaoHorizontal += 20
+					document.getElementById("quadrado").style.top = posicaoHorizontal+'px'
+				}
+
+				if (posicaoHorizontal < 0) {posicaoHorizontal += 20}
+				if (posicaoHorizontal > 440) {posicaoHorizontal -= 20}
+			}
+
+			document.getElementById("vestical").innerHTML = "Posição Vestical: " + posicaoVertical
+			document.getElementById("horizontal").innerHTML = "Posição Horizontal: " + posicaoHorizontal
+
+		}
+
+	</script>
+
+</body>
+</html>
