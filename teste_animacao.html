@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+			
+		<script src="teste_animacao.js"></script>
+
+		<style>
+
+			#borda_container{
+				border: solid 50px;
+				border-color: #8FBC8F;
+				width: 400px;
+				height: 400px;
+				margin: 0 auto;
+			}
+			#container {
+			  width: 400px;
+			  height: 400px;
+			  position: relative;
+			  background: yellow;
+			  margin: 0 auto;
+			}
+			#animate {
+			  width: 20px;
+			  height: 20px;
+			  position: absolute;
+			  background-color: red;
+			}
+			#ponto {
+			  width: 20px;
+			  height: 20px;
+			  position: absolute;
+			  background: black;
+			}
+
+		</style>
+
+	</head>
+
+	<body onkeydown="myMove()">
+
+		<p id="code">KEY CODE correspondente: </p>
+		<p id="vestical">Posição Vestical: </p>
+		<p id="horizontal">Posição Horizontal: </p>
+
+		<p><button onclick="stop()">PAUSAR</button></p> 
+
+		<div id="borda_container">
+			<div id ="container">
+				<div id ="animate"></div>
+				<div id="ponto"></div>
+			</div>
+		</div>
+
+		<script>
+			setInterval(function(){
+				pontoRandom()
+			}, 5000)
+
+		</script>
+
+	</body>
+</html>
